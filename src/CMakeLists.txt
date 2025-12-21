@@ -3,10 +3,13 @@ find_package(lz4 QUIET)
 find_package(fmt QUIET)
 
 add_library(ftr INTERFACE)
-target_include_directories(ftr INTERFACE 
+target_include_directories(ftr INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> # for headers when building
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}> # for client in install mode
 )
+if(TARGET lz4::lz4)
+    target_link_libraries(ftr INTERFACE lz4::lz4)
+endif()
 
 set(SOURCES lwtr/lwtr.cpp lwtr/lwtr_text.cpp)
 if(TARGET lz4::lz4)
