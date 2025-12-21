@@ -104,7 +104,7 @@ struct Fiber {
         , writer(w) {
         writer->writeStream(fiber_id, name, kind);
         writer->writeGenerator(tx_generator_id, name + "_tx", fiber_id);
-        writer->writeGenerator(event_generator_id, "events", fiber_id);
+        writer->writeGenerator(event_generator_id, name + "_tx.events", fiber_id);
     }
 };
 
