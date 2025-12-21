@@ -6,6 +6,7 @@ project(lwtr4sc VERSION 1.0.0)
 
 if(CMAKE_PROJECT_NAME STREQUAL "lwtr4sc")
   include(FetchContent)
+  set(FMT_INSTALL ON CACHE BOOL "Enable fmt install")
   FetchContent_Declare(fmt
     GIT_REPOSITORY https://github.com/fmtlib/fmt.git
     GIT_TAG 9.1.0

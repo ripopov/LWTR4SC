@@ -151,6 +151,11 @@ VAL_CONV(uint64_t);
 VAL_CONV2(uint32_t, uint64_t);
 VAL_CONV2(uint16_t, uint64_t);
 VAL_CONV2(uint8_t, uint64_t);
+// On macOS, long/unsigned long are distinct from int64_t/uint64_t
+#if defined(__APPLE__) && defined(__MACH__)
+VAL_CONV2(long, int64_t);
+VAL_CONV2(unsigned long, uint64_t);
+#endif
 VAL_CONV(sc_core::sc_time);
 
 template <typename T> value record(T const& t) { return value_converter<T>::to_value(t); }
