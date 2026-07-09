@@ -45,5 +45,6 @@ endif()
 
 add_subdirectory(${scp_git_SOURCE_DIR}/report ${CMAKE_BINARY_DIR}/scp)
 add_subdirectory(src)
+add_subdirectory(tools)
 add_subdirectory(example)
 add_subdirectory(${CMAKE_SOURCE_DIR}/test EXCLUDE_FROM_ALL)
